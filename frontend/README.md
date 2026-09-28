@@ -1,16 +1,130 @@
-# React + Vite
+# SATARK AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## AI-Based Intelligent Video Analytics Platform
 
-Currently, two official plugins are available:
+SATARK AI is an intelligent video analytics platform designed for surveillance using existing CCTV infrastructure.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+It combines computer vision, AI-based face analysis, OCR, GPS location and evidence capture into a centralized surveillance dashboard.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Project Status
 
-## Expanding the Oxlint configuration
+- Backend: 🟢 Live
+- AI Pipeline: 🟢 Implemented
+- OCR: 🟢 Implemented
+- GPS: 🟢 Implemented
+- Target Watchlist: 🟢 Implemented
+- Frontend: 🚧 Deployment in progress
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+## 🌐 Live Backend
+
+[Open SATARK Backend](https://satark-xz7b.onrender.com)
+
+## 📚 API Documentation
+
+[Open SATARK API Docs](https://satark-xz7b.onrender.com/docs)
+
+---
+
+## ✨ Features
+
+- 📹 Live camera integration
+- 🤖 AI-based video analysis
+- 👤 Authorized target watchlist
+- 🔍 Face detection and feature comparison
+- 🚘 OCR-based text detection
+- 📍 GPS location tracking
+- 🚨 Security alert generation
+- 📸 Evidence and snapshot capture
+- 📊 Centralized surveillance dashboard
+- 🌐 REST API using FastAPI
+
+---
+
+## 🧠 AI & Computer Vision
+
+SATARK uses:
+
+- OpenCV
+- YuNet
+- SFace
+- ONNX
+- EasyOCR
+- NumPy
+- PyTorch
+
+---
+
+## 💻 Technology Stack
+
+### Frontend
+
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Vite
+
+### Backend
+
+- Python
+- FastAPI
+- Uvicorn
+
+### AI / Computer Vision
+
+- OpenCV
+- YuNet
+- SFace
+- ONNX
+- EasyOCR
+- PyTorch
+- NumPy
+
+### Browser APIs
+
+- MediaDevices API
+- Geolocation API
+
+---
+
+## 🏗️ Project Structure
+
+```text
+SATARK/
+│
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── targets.py
+│   │   │
+│   │   ├── models/
+│   │   │   └── ai/
+│   │   │       ├── face_detection_yunet_2023mar.onnx
+│   │   │       └── face_recognition_sface_2021dec.onnx
+│   │   │
+│   │   ├── services/
+│   │   │   ├── face_engine.py
+│   │   │   ├── ocr_engine.py
+│   │   │   └── watchlist.py
+│   │   │
+│   │   └── main.py
+│   │
+│   ├── data/
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   └── main.jsx
+│   │
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.js
+│
+├── .gitignore
+└── .python-version

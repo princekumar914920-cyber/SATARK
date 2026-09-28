@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_BASE = "";
+const API_BASE = "https://satark-xz7b.onrender.com";
 
 // ============================================================
 // TARGET WATCHLIST
