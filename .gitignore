@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Python cache
+.pytest_cache/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Runtime / generated data
+backend/data/evidence/*
+backend/data/snapshots/*
+backend/data/matches/*
+backend/data/videos/*
+
+# Local GPS / OCR results
+backend/data/mobile_location.json
+backend/data/ocr_result.json
+
+# Target photos and face embeddings
+backend/data/targets/*.jpg
+backend/data/targets/*.npy
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
