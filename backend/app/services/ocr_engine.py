@@ -1,18 +1,35 @@
-import easyocr
 import cv2
 
 
 class OCREngine:
 
     def __init__(self):
-        print("Loading EasyOCR...")
+        # EasyOCR ko startup par load nahi karna.
+        # Isse Render ke limited RAM me startup memory kam rahegi.
+        self.reader = None
 
-        self.reader = easyocr.Reader(
-            ["en"],
-            gpu=False
-        )
+    def _get_reader(self):
+        """
+        EasyOCR ko sirf tab load karta hai jab OCR actually use hota hai.
+        """
 
-        print("EasyOCR loaded successfully.")
+        if self.reader is None:
+
+            print("Loading EasyOCR...")
+
+            # Lazy import:
+            # EasyOCR + PyTorch server startup par load nahi honge.
+            import easyocr
+
+            self.reader = easyocr.Reader(
+                ["en"],
+                gpu=False,
+                verbose=False
+            )
+
+            print("EasyOCR loaded successfully.")
+
+        return self.reader
 
     def read_text(self, image):
 
@@ -20,11 +37,18 @@ class OCREngine:
             return []
 
         try:
+
+            # -----------------------------------------
+            # GET EASY OCR READER
+            # -----------------------------------------
+
+            reader = self._get_reader()
+
             # -----------------------------------------
             # ORIGINAL IMAGE
             # -----------------------------------------
 
-            results_original = self.reader.readtext(
+            results_original = reader.readtext(
                 image,
                 detail=1,
                 paragraph=False
@@ -39,7 +63,7 @@ class OCREngine:
                 cv2.COLOR_BGR2GRAY
             )
 
-            results_gray = self.reader.readtext(
+            results_gray = reader.readtext(
                 gray,
                 detail=1,
                 paragraph=False
@@ -59,7 +83,7 @@ class OCREngine:
                 interpolation=cv2.INTER_CUBIC
             )
 
-            results_upscaled = self.reader.readtext(
+            results_upscaled = reader.readtext(
                 upscaled,
                 detail=1,
                 paragraph=False
@@ -132,5 +156,17 @@ class OCREngine:
 
             return []
 
+
+# -----------------------------------------
+# OCR ENGINE INSTANCE
+# -----------------------------------------
+#
+# Important:
+# OCREngine object banega,
+# lekin EasyOCR Reader abhi load nahi hoga.
+#
+# EasyOCR tab load hoga jab read_text()
+# actually call hoga.
+# -----------------------------------------
 
 ocr_engine = OCREngine()
